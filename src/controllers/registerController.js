@@ -60,7 +60,7 @@ const register = async (req, res) => {
       m_phoneNo = parseInt(m_phoneNo);
     }
 
-    //check for otp
+    // check for otp
     const currentDate = new Date();
     const leader = await Auth.findOne({ email: l_email });
     console.log(leader)
@@ -105,7 +105,7 @@ const register = async (req, res) => {
             status: "false",
             message: "OTP expired",
           });
-        } else if (leader.otp !== l_otp) {
+        } else if (leader.otp != l_otp) {
           return res.status(500).json({
             status: "false",
             email: m_email,
